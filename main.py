@@ -49,3 +49,35 @@ def status():
 @app.get("/api/plans")
 def plans():
     return [{"name":"Standart","monthly_try":100},{"name":"Premium","monthly_try":250},{"name":"VIP","monthly_try":400}]
+import os
+import requests
+
+API_SPORTS_KEY = os.getenv("API_SPORTS_KEY")
+
+@app.get("/api/football/live")
+def get_live_football():
+    if not API_SPORTS_KEY:
+        return {"error": "API anahtarı bulunamadı"}
+
+    url = "https://v3.football.api-sports.io/fixtures"
+
+    headers = {
+        "x-apisports-key": API_SPORTS_KEY
+    }
+
+    params = {
+        "live": "all"
+    }
+
+    try:
+        response = requests.get(
+            url,
+            headers=headers,
+            params=params,
+            timeout=15
+        )
+        response.raise_for_status()
+        return response.json()
+
+    except requests.RequestException as e:
+        return {"error": str(e)}
