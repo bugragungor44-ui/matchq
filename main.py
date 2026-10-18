@@ -85,6 +85,7 @@ def get_live_football():
 @app.get("/{page_name}.html")
 def html_page(page_name: str):
     allowed_pages = {
+        "index",
         "mac-merkezi",
         "analiz",
         "tahminler",
