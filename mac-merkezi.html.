@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match Q | Maç Merkezi</title>
+
+<style>
+:root {
+    --bg: #202426;
+    --card: #2d3134;
+    --orange: #ff982e;
+    --white: #ffffff;
+    --muted: #b8bec2;
+    --border: #414649;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    min-height: 100vh;
+}
+
+header {
+    background: #191c1e;
+    padding: 22px 5%;
+    border-bottom: 2px solid var(--orange);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.logo {
+    color: var(--orange);
+    font-size: 27px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--orange);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #34393c, #25292b);
+    border: 1px solid #5b5146;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 35px;
+}
+
+.badge {
+    display: inline-block;
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 11px;
+    margin-bottom: 14px;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+h1 span,
+h2 span {
+    color: var(--orange);
+}
+
+.hero p {
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 650px;
+}
+
+h2 {
+    font-size: 23px;
+    margin: 30px 0 18px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 19px;
+}
+
+.card p {
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.risk {
+    display: inline-block;
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-bottom: 15px;
+    background: #45494b;
+    color: var(--white);
+}
+
+.risk.low {
+    color: #9fe3b0;
+}
+
+.risk.medium {
+    color: #ffd18b;
+}
+
+.risk.high {
+    color: #ffaaaa;
+}
+
+.match {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.match:last-child {
+    border-bottom: none;
+}
+
+.teams {
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.pick {
+    color: var(--orange);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+button {
+    background: var(--orange);
+    color: #202426;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 18px;
+}
+
+button:hover {
+    background: #ffb15c;
+}
+
+.info {
+    margin-top: 30px;
+    background: #292d2f;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 25px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+@media (max-width: 850px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .hero {
+        padding: 24px;
+    }
+
+    nav {
+        gap: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="logo">⚽ MATCH Q</div>
+
+        <nav>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="mac-merkezi.html" class="active">Maç Merkezi</a>
+            <a href="analiz-merkezi.html">Analiz Merkezi</a>
+            <a href="tahminler.html">Tahminler</a>
+            <a href="kuponlar.html">Kuponlar</a>
+            <a href="uyelikler.html">Üyelikler</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <span class="badge">MATCH Q • MAÇ MERKEZİ</span>
+
+        <h1>
+            Maçları takip et.<br>
+            <span>Verilerle analiz et.</span>
+        </h1>
+
+        <p>
+            Futbol ve basketbol karşılaşmalarını incele.
+            İstatistikleri değerlendir, analizleri görüntüle
+            ve farklı risk seviyelerindeki örnek kuponları keşfet.
+        </p>
+
+        <button onclick="location.href='analiz-merkezi.html'">
+            Analiz Merkezine Git →
+        </button>
+    </section>
+
+    <h2>Günün <span>Kupon Önerileri</span></h2>
+
+    <div class="grid">
+
+        <!-- DÜŞÜK RİSK -->
+        <section class="card">
+            <span class="risk low">DÜŞÜK RİSK</span>
+
+            <h3>Temkinli Seçimler</h3>
+
+            <p>
+                Daha temkinli seçimler için istatistiklerin
+                değerlendirilmesi hedeflenir.
+            </p>
+
+            <div class="match">
+                <div class="teams">Örnek Maç 1</div>
+                <p>Takımların son maç performansları incelenmeli.</p>
+                <div class="pick">Örnek seçim: 1,5 Üst</div>
+            </div>
+
+            <div class="match">
+                <div class="teams">Örnek Maç 2</div>
+                <p>İç saha ve deplasman performansı incelenmeli.</p>
+                <div class="pick">Örnek seçim: Çifte Şans</div>
+            </div>
+
+            <div class="match">
+                <div class="teams">Örnek Maç 3</div>
+                <p>Takımların savunma istatistikleri incelenmeli.</p>
+                <div class="pick">Örnek seçim: 4,5 Alt</div>
+            </div>
+        </section>
+
+        <!-- ORTA RİSK -->
+        <section class="card">
+            <span class="risk medium">ORTA RİSK</span>
+
+            <h3>Dengeli Seçimler</h3>
+
+            <p>
+                Birden fazla istatistiğin birlikte
+                değerlendirilmesi hedeflenir.
+            </p>
+
+            <div class="match">
+                <div class="teams">Örnek Maç 4</div>
+                <p>Gol ortalamaları ve son karşılaşmalar incelenmeli.</p>
+                <div class="pick">Örnek seçim: 2,5 Üst</div>
+            </div>
+
+            <div class="match">
+                <div class="teams">Örnek Maç 5</div>
+                <p>Hücum ve savunma performansları incelenmeli.</p>
+                <div class="pick">Örnek seçim: Karşılıklı Gol</div>
+            </div>
+
+            <div class="match">
+                <div class="teams">Örnek Maç 6</div>
+                <p>Basketbolda tempo ve sayı ortalamaları incelenmeli.</p>
+                <div class="pick">Örnek seçim: Toplam Sayı Üst</div>
+            </div>
+        </section>
+
+        <!-- YÜKSEK RİSK -->
+        <section class="card">
+            <span class="risk high">YÜKSEK RİSK</span>
+
+            <h3>Riskli Seçimler</h3>
+
+            <p>
+                Daha belirsiz sonuçlar içeren seçimler
+                yüksek riskli olarak sınıflandırılır.
+            </p>
+
+            <div class="match">
+                <div class="teams">Örnek Maç 7</div>
+                <p>Takımların form durumu ve kadroları incelenmeli.</p>
+                <div class="pick">Örnek seçim: İlk Yarı / Maç Sonucu</div>
+            </div>
+
+            <div class="match">
+                <div class="teams">Örnek Maç 8</div>
+                <p>Gol beklentisi ve oyun tarzları incelenmeli.</p>
+                <div class="pick">Örnek seçim: 3,5 Üst</div>
+            </div>
+
+            <div class="match">
+                <div class="teams">Örnek Maç 9</div>
+                <p>Basketbolda hücum verimliliği incelenmeli.</p>
+                <div class="pick">Örnek seçim: Takım Sayısı Üst</div>
+            </div>
+        </section>
+
+    </div>
+
+    <h2>Hızlı <span>Erişim</span></h2>
+
+    <div class="grid">
+
+        <section class="card">
+            <h3>📊 Analiz Merkezi</h3>
+            <p>
+                Maç seç, takım istatistiklerini incele ve
+                tahmin gerekçelerini görüntüle.
+            </p>
+
+            <button onclick="location.href='analiz-merkezi.html'">
+                Analiz Et →
+            </button>
+        </section>
+
+        <section class="card">
+            <h3>🎯 Tahminler</h3>
+            <p>
+                Futbol ve basketbol için hazırlanan
+                analiz ve tahmin ekranına git.
+            </p>
+
+            <button onclick="location.href='tahminler.html'">
+                Tahminleri Gör →
+            </button>
+        </section>
+
+        <section class="card">
+            <h3>🎟️ Kuponlar</h3>
+            <p>
+                Farklı risk kategorilerindeki kupon
+                taslaklarını incele.
+            </p>
+
+            <button onclick="location.href='kuponlar.html'">
+                Kuponları Gör →
+            </button>
+        </section>
+
+    </div>
+
+    <div class="info">
+        <strong>Bilgilendirme:</strong>
+        Bu sayfadaki maçlar ve seçimler örnektir.
+        Gerçek maç verileri, canlı sonuçlar ve otomatik analiz
+        sistemi henüz bağlanmamıştır. Risk kategorileri kazanç
+        garantisi vermez. Gerçek veriler API bağlantısı ve
+        analiz motoru eklendiğinde gösterilecektir.
+    </div>
+
+</main>
+
+<footer>
+    © 2026 Match Q — Futbol ve Basketbol Analiz Platformu
+</footer>
+
+</body>
+</html>
