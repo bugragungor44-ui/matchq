@@ -81,3 +81,23 @@ def get_live_football():
 
     except requests.RequestException as e:
         return {"error": str(e)}
+
+@app.get("/{page_name}.html")
+def html_page(page_name: str):
+    allowed_pages = {
+        "mac-merkezi",
+        "analiz",
+        "tahminler",
+        "kuponlar",
+        "uyelik",
+        "giris",
+        "admin",
+    }
+
+    if page_name not in allowed_pages:
+        raise HTTPException(status_code=404, detail="Sayfa bulunamadi")
+
+    return FileResponse(
+        Path(__file__).parent / f"{page_name}.html",
+        media_type="text/html"
+    )
